@@ -21858,6 +21858,27 @@ var CatTable = function (_React$Component) {
         value: function render() {
             console.log(this.props.kitties);
 
+            var male = this.props.kitties.filter(function (cat) {
+                return cat.category === 'male';
+            });
+
+            var maleRows = male.map(function (cat) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        cat.name
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        cat.age
+                    )
+                );
+            });
+
             return _react2.default.createElement(
                 'table',
                 null,
@@ -21882,43 +21903,7 @@ var CatTable = function (_React$Component) {
                 _react2.default.createElement(
                     'tbody',
                     null,
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'th',
-                            { colSpan: '2' },
-                            'male'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            'Fidel'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '4'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            'Fidel'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '4'
-                        )
-                    ),
+                    maleRows,
                     _react2.default.createElement(
                         'tr',
                         null,
