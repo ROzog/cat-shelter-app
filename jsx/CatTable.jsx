@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 class CatTable extends React.Component {
     render() {
+        console.log(this.props.kitties);
+
         return (<table>
             <thead>
                 <tr>

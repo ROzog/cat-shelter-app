@@ -9413,8 +9413,10 @@ var _App2 = _interopRequireDefault(_App);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var kitties = [{ category: "male", age: "4", likesKids: true, name: "Fidel Catstro" }, { category: "male", age: "9", likesKids: true, name: "Hairy Potter" }, { category: "male", age: "2", likesKids: false, name: "Grumpy" }, { category: "female", age: "1", likesKids: true, name: "Jude Paw" }, { category: "female", age: "2", likesKids: false, name: "Lucifurr" }, { category: "female", age: "3", likesKids: true, name: "Meowly Cyrus" }];
+
 document.addEventListener('DOMContentLoaded', function () {
-    _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('app'));
+    _reactDom2.default.render(_react2.default.createElement(_App2.default, { kitties: kitties }), document.getElementById('app'));
 });
 
 /***/ }),
@@ -21727,7 +21729,7 @@ var App = function (_React$Component) {
                 'section',
                 null,
                 _react2.default.createElement(_SearchBar2.default, null),
-                _react2.default.createElement(_CatTable2.default, null)
+                _react2.default.createElement(_CatTable2.default, { kitties: this.props.kitties })
             );
         }
     }]);
@@ -21854,6 +21856,8 @@ var CatTable = function (_React$Component) {
     _createClass(CatTable, [{
         key: 'render',
         value: function render() {
+            console.log(this.props.kitties);
+
             return _react2.default.createElement(
                 'table',
                 null,
