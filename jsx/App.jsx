@@ -26,9 +26,21 @@ class App extends React.Component {
     }
 
     render () {
+        const kitties = this.props.kitties.filter(cat => {
+            if(this.state.likesKids && !cat.likesKids) {
+                return false;
+            }
+
+            if(this.state.filterText.length > 0 && cat.name.indexOf(this.state.filterText) === -1) {
+                return false;
+            }
+
+            return true;
+        });
+
         return (<section>
             <SearchBar onTextChange={this.handleTextChange} onCheckboxChange={this.handleCheckboxChange} filterText={this.state.filterText} likesKids={this.state.likesKids} />
-            <CatTable kitties={this.props.kitties}/>
+            <CatTable kitties={kitties}/>
         </section>)
     }
 }

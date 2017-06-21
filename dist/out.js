@@ -21743,11 +21743,25 @@ var App = function (_React$Component) {
     _createClass(App, [{
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
+            var kitties = this.props.kitties.filter(function (cat) {
+                if (_this2.state.likesKids && !cat.likesKids) {
+                    return false;
+                }
+
+                if (_this2.state.filterText.length > 0 && cat.name.indexOf(_this2.state.filterText) === -1) {
+                    return false;
+                }
+
+                return true;
+            });
+
             return _react2.default.createElement(
                 'section',
                 null,
                 _react2.default.createElement(_SearchBar2.default, { onTextChange: this.handleTextChange, onCheckboxChange: this.handleCheckboxChange, filterText: this.state.filterText, likesKids: this.state.likesKids }),
-                _react2.default.createElement(_CatTable2.default, { kitties: this.props.kitties })
+                _react2.default.createElement(_CatTable2.default, { kitties: kitties })
             );
         }
     }]);
