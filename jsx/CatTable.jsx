@@ -10,7 +10,7 @@ class CatTable extends React.Component {
         });
 
         const maleRows = male.map(cat => {
-            return (<tr>
+            return (<tr key={cat.name}>
                 <td>{cat.name}</td>
                 <td>{cat.age}</td>
             </tr>);
