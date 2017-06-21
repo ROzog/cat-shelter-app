@@ -8,14 +8,26 @@ class App extends React.Component {
     constructor() {
         super(...arguments);
         this.state = {
-            filterText: 'ddd',
-            likesKids: true
+            filterText: '',
+            likesKids: false
         }
+    }
+
+    handleTextChange = event => {
+        this.setState({
+            filterText: event.target.value,
+        });
+    }
+
+    handleCheckboxChange = event => {
+        this.setState({
+            likesKids: event.target.checked,
+        });
     }
 
     render () {
         return (<section>
-            <SearchBar filterText={this.state.filterText} likesKids={this.state.likesKids} />
+            <SearchBar onTextChange={this.handleTextChange} onCheckboxChange={this.handleCheckboxChange} filterText={this.state.filterText} likesKids={this.state.likesKids} />
             <CatTable kitties={this.props.kitties}/>
         </section>)
     }
