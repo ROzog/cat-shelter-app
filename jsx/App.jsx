@@ -1,15 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import SearchBar from './SearchBar.jsx';
+
 class App extends React.Component {
     render () {
         return <section>
-            <header>
-                <form>
-                    <div><label><input type="text"/></label></div>
-                    <div><label><input type="checkbox"/> Only show cats that like kids</label></div>
-                </form>
-            </header>
+            <SearchBar/>
             <table>
                 <thead>
                     <tr>
