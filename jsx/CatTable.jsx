@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import CatRow from './CatRow.jsx';
+
 class CatTable extends React.Component {
 
     getRows(category) {
@@ -9,10 +11,7 @@ class CatTable extends React.Component {
         });
 
         const rows = items.map(cat => {
-            return (<tr key={cat.name}>
-                <td>{cat.name}</td>
-                <td>{cat.age}</td>
-            </tr>);
+            return <CatRow key={cat.name} cat={cat}/>;
         });
 
         return rows;
@@ -22,6 +21,7 @@ class CatTable extends React.Component {
         console.log(this.props.kitties);
 
         const maleRows = this.getRows('male');
+        const femaleRows = this.getRows('female');
 
         return (<table>
             <thead>
@@ -35,10 +35,7 @@ class CatTable extends React.Component {
                 <tr>
                     <th colSpan="2">female</th>
                 </tr>
-                <tr>
-                    <td>Yude</td>
-                    <td>4</td>
-                </tr>
+                {femaleRows}
             </tbody>
         </table>);
     }

@@ -21836,6 +21836,10 @@ var _reactDom = __webpack_require__(92);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _CatRow = __webpack_require__(181);
+
+var _CatRow2 = _interopRequireDefault(_CatRow);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21861,20 +21865,7 @@ var CatTable = function (_React$Component) {
             });
 
             var rows = items.map(function (cat) {
-                return _react2.default.createElement(
-                    'tr',
-                    { key: cat.name },
-                    _react2.default.createElement(
-                        'td',
-                        null,
-                        cat.name
-                    ),
-                    _react2.default.createElement(
-                        'td',
-                        null,
-                        cat.age
-                    )
-                );
+                return _react2.default.createElement(_CatRow2.default, { key: cat.name, cat: cat });
             });
 
             return rows;
@@ -21885,6 +21876,7 @@ var CatTable = function (_React$Component) {
             console.log(this.props.kitties);
 
             var maleRows = this.getRows('male');
+            var femaleRows = this.getRows('female');
 
             return _react2.default.createElement(
                 'table',
@@ -21920,20 +21912,7 @@ var CatTable = function (_React$Component) {
                             'female'
                         )
                     ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            'Yude'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '4'
-                        )
-                    )
+                    femaleRows
                 )
             );
         }
@@ -21943,6 +21922,69 @@ var CatTable = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = CatTable;
+
+/***/ }),
+/* 181 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(80);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(92);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CatRow = function (_React$Component) {
+    _inherits(CatRow, _React$Component);
+
+    function CatRow() {
+        _classCallCheck(this, CatRow);
+
+        return _possibleConstructorReturn(this, (CatRow.__proto__ || Object.getPrototypeOf(CatRow)).apply(this, arguments));
+    }
+
+    _createClass(CatRow, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.props.cat.name
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.props.cat.age
+                )
+            );
+        }
+    }]);
+
+    return CatRow;
+}(_react2.default.Component);
+
+exports.default = CatRow;
 
 /***/ })
 /******/ ]);
